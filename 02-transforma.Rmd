@@ -1,0 +1,320 @@
+# Transformaciones {#transforma}
+
+## Datos
+
+Vamos a trabajar con el **data frame** [`nycflights13::flights`](https://rdrr.io/cran/nycflights13/man/flights.html). Una vez más ten en cuanta los "conflictos" y asegúrate de usar la función correcta (`paquete_correcto::fun_repetida(...)`).
+
+```{r}
+library(nycflights13)
+library(tidyverse)
+
+flights
+```
+
+#### Ejercicios
+
+1. ¿Puedes identificar los tipos de variables?
+
+2. ¿Qué información puedes extraer de los datos con la función `summary()`?
+
+## El paquete `dplyr`
+
+El objetivo ahora es asimilar las transformaciones de datos que ofrece `dplyr`:
+
+* Filtrar observaciones (filas) con `filter()`,
+* Reordenar observaciones (filas) con `arrange()`,
+* Seleccionar variables (columnas) con `select()`,
+* Crear nuevas variables (columnas) aplicando transformaciones (funciones) a las ya existentes con `mutate()`,
+* Resumir la información de muchos valores con `summarise()`,
+* ... puede ser usado con `group_by()` que agrupa las observaciones de acuerdo a cierta variable categórica.
+
+### Filtrar filas
+
+Con `filter()` podemos filtrar/extraer las observaciones de acuerdo a características de una o varias variables, usando los operadores de comparación lógicos. Por ejemplo, para filtrar todos los vuelos ocurridos en los 1eros de Enero:
+
+```{r}
+filter(flights, month == 1, day == 1)
+```
+
+Todos los vuelos de Enero a Febrero:
+
+```{r}
+# nivel: "beginner"
+flights_1_2 <- filter(flights, month == 1 | month == 2)
+
+# nivel: "beginner" adelantado
+flights_1_2 <- filter(flights, month %in% c(1, 2))
+
+# nivel: "tidyverser" :)
+flights_1_2 <- flights %>% 
+  filter(month %in% c(1, 2))
+```
+
+Vuelos que no se han retrasado más de 2hrs (tanto salida como llegada):
+
+```{r}
+not_delayed <- filter(flights, arr_delay <= 120, dep_delay <= 120)
+```
+
+Algo interesante de `filter()` es que deja fuera directamente los `NA`s.
+
+#### Ejercicios:
+
+3. Encontrar los vuelos (asignar a una nueva variable que nombres apropiadamente):
+   a. Se atrasaron más de 2hrs en llegar
+   b. Volaron a Houston (IAH or HOU)
+   c. Fueron operados por "United", "American" o "Deta"
+   d. Salieron en el verano (Julio, Agosto y Septiembre)
+   e. Llegaron más de 2hrs tarde, pero no salieron tarde
+   f. Se retrasaron al menos 1hr, pero compesaron 30min en vuelo
+   g. Salieron entre medianoche y 6am (inclusive)
+
+4. Busca la ayuda de `between()` e intenta simplificar un poco tus respuestas al ejercicio anterior.
+
+
+5. ¿Cuántos vuelos no tienen información sobre `dep_time`? ¿Alguna otra variable tiene datos perdidos? ¿Qué crees que representan en cada caso?
+
+6. ¿Qué crees de los siguientes resultados?
+
+```{r}
+NA^0
+NA | TRUE
+FALSE & NA
+NA * 0
+```
+
+### Rerodenar filas
+
+Con `arrange()` podemos ordenar las observaciones (filas) de nuestros data frame, de acuerdo a una o más variables (columnas). En general, la ordenación se hará de acuerdo a la primera variable y el resto se usará en caso de "empate". Por defecto, la ordenación es ascendente y los `NA` se colocan al final:
+
+```{r}
+fl_asc <-  arrange(flights, year, month, day, dep_time)
+head(fl_asc, 7)
+tail(fl_asc, 7)
+```
+
+Orden descendente, de acuerdo a `dep_time`:
+
+```{r}
+fl_dsc <-  arrange(flights, desc(dep_time))
+head(fl_dsc, 7)
+```
+
+#### Ejercicios
+
+7. Si por defecto `arrange()` coloca los `NA` al final, ¿hay alguna forma de colocarlos al inicio? Hint: usa `is.na()`.
+
+```{r, eval=FALSE, echo=FALSE}
+arrange(flights, desc(is.na(dep_time)), dep_time)
+```
+
+9. Ordena los vuelos para encontrar los que más se retrasaron. Encuentra los que despegaron antes.
+
+10. Ordena los vuelos de forma tal que permita encontrar los de mayor velocidad.
+
+11. ¿Cuáles son los vuelos que mayor (menor) distancia recorrieron?
+
+
+### Seleccionar variables
+
+Con `select()` podemos justamente seleccionar variables (columnas) de interés. 
+
+```{r}
+# seleccionamos año, mes y día
+flights %>% 
+  select(year, month, day) %>% 
+  head(5)
+
+# seleccionamos todas las columnas desde año (year) hasta día (day),
+# ambas inclusive
+flights %>% 
+  select(year:day) %>% 
+  head(5)
+
+# seleccionamos todas las columnas excepto las que van desde año (year) 
+# hasta día (day), ambas inclusive
+flights %>% 
+  select(-(year:day)) %>% 
+  head(5)
+```
+
+También dispondremos de las "funciones de ayuda a la selección":
+
+* `starts_with("abc")`: columnas que empiezan en “abc”.
+* `ends_with("xyz")`: columnas que terminan en “xyz”.
+* `contains("ijk")`: columnas que contienen la expresión “ijk”.
+* `matches(""[pt]xyz"")`: selecciona variables que coinciden con una expresión regular.
+* `num_range("x", 1:3)`: equivalente a seleccionr: `paste0("x", 1:3)`.
+* `everything()`: selecciona todas las variables. Útil si deseamos poner algunas columnas de interés al incio, porque `select()` no incluye columnas repetidas:
+
+```{r}
+flights %>%
+  select(time_hour, air_time, everything()) %>% 
+  head(5)
+```
+
+#### Ejercicios
+
+12. ¿Cuál será la forma más corta de seleccionar: `dep_time`, `dep_delay`, `arr_time`, `arr_delay`?
+
+13. Queremos seleccionar las variables indicadas en el vector `vars`. Hint: usar `any_of`.
+
+```{r}
+vars <- c("year", "month", "day", "dep_delay", "arr_delay")
+```
+
+14. ¿QUé pasa con el siguiente código? ¿Debería seleccionar todas esas variables? Hint: mirar el argumento `ignore.case`.
+
+```{r}
+select(flights, contains("TiMe"))
+```
+
+### Crear nuevas variables
+
+Con `mutate()` podemos añadir nuevas columnas a nuestro data frame. Estas columnas se crean al aplicar las funciones que conocemos (operaciones aritméticas, *lags*, acumulados, etc.) a las columnas ya existentes. 
+
+```{r}
+flights %>% 
+  mutate(gain = dep_delay - arr_delay,
+       speed = distance / air_time * 60,
+       hours = air_time / 60,
+       gain_per_hour = gain / hours) %>%  # ¡usamos las columnas nuevas!
+  select(gain, speed, hours, gain_per_hour, everything()) %>% 
+  head(5)
+```
+
+Si solamente nos interesan las nuevas columnas que hemos creado, usamos `transmute()`:
+
+```{r}
+flights %>% 
+  transmute(gain = dep_delay - arr_delay,
+       speed = distance / air_time * 60,
+       hours = air_time / 60,
+       gain_per_hour = gain / hours) %>%  # ¡usamos las columnas nuevas!
+  head(5)
+```
+
+
+#### Ejercicios
+
+**15.** Convertir `dep_time` y `sched_dep_time` a minutos transcurridos desde la medianoche. Notar que son variables importantes pero con un formato difícil de trabajar (es complicado hacer operaciones artiméticas con ellos). Sigue las siguientes directrices:
+
+  * Una observación de `dep_time` sería por ejemplo `2021` que indica las 20:21hrs (8:21pm).
+  * Para obtener las horas transcurridas dede la medianoche hasta las 20:21hrs tendremos que usar la división entera `2021 %/% 100 == 20`. Luego es fácil obtenir los minutos multiplicando por 60.
+  * Los 21 minutos restantes podemos obtenerlos con el resto de la división `2021 %% 100 == 21`... no olvides sumar ambas cantidades
+  * Finalmente, tendrás que lidiar con la medianoche, representada con `2400`. Primero, comprueba a cuántos minutos corresponde según nuestras operaciones. Luego, considera calcular el resto de la división por esta cantidad de minutos (siempre que `x <= y` y ambos sean positivos, tendremos `x %% y == 0`).
+
+**16.** Compara `air_time` con `arr_time - dep_time`. ¿Es necesaria hacer la transformación del ejercicio anterior? ¿Puedes encontrar en cuántos casos `air_time != arr_time - dep_time`? ¿Por qué pasa esto, no deberíamos obtener que el tiempo de vuelo es la diferencia entre la llegada y la salida? 
+
+**17.** ¿Qué relación crees que habrá entre `dep_time`, `sched_dep_time` y `dep_delay`? Encuentra el número de observaciones en las que no se cumple tu hipótesis.
+
+**18.** Encuentra los 10 vuelos que más se retrasaron.
+
+### Resumir variables
+
+Con `summarise()` logramos "resumir" la información de determinadas variables, de acuerdo a cierta función que fijemos (media, mediana, IQR, etc.). Debes tener en cuenta que esto "colapsa" el data frame incial.
+
+```{r}
+summarise(flights, delay = mean(dep_delay, na.rm = TRUE))
+summarise(flights, delay = mean(dep_delay))
+```
+Ahora, lo verdaderamente interesante de esta función es usarla para "observaciones agrupadas" con `group_by()`. Por ejemplo, queremos saber la media de los retrasos por mes y año:
+
+```{r}
+mean_m_y <-  flights %>% 
+  group_by(year, month) %>% 
+  summarise(delay = mean(dep_delay, na.rm = TRUE)) 
+mean_m_y
+```
+Cambiando la variable de agrupamiento (debe ser categórica) podemos obtener la media (o cualqiuer otro estadístico que deseemos) para cada categoría. Veamos un ejemplo en combinación con `ggplot`:
+
+```{r}
+delays <- flights %>% 
+  group_by(dest) %>% 
+  summarise(
+    count = n(),
+    dist = mean(distance, na.rm = TRUE),
+    delay = mean(arr_delay, na.rm = TRUE)
+  ) %>% 
+  filter(count > 20, dest != "HNL")
+
+ggplot(data = delays, mapping = aes(x = dist, y = delay)) +
+  geom_point(aes(size = count), alpha = 1/3) +
+  geom_smooth(se = FALSE)
+```
+
+Estamos agrupando por destino (`dest`) y luego contamos la cantidad de vuelos que van a cada destino (`count`), la distancia media (`dist`) entre los aeropuertos de origen y el destino, y el retraso medio en minutos de la llegada (`delay`). Habrás notado que filtramos los destinos con pocas visitas (pueden ser outliers) y Honolulu (está muy lejos de casi cualquier aeropuerto), para eliminar un poco de "ruido" en nuestro plot (intenta omitir el filtrado y notarás que es más difícil la interpretación). De este gráfico entendemos que mientras más cercano el destino, mayor probabilidad de retraso. Sin embargo, los vuelos a destinos lejanos parecen presentar menos retrasos (tal vez en el aire puedan compensar el retraso).
+
+Otros ejemplos usando varias variables de agrupamiento:
+
+```{r}
+daily <- group_by(flights, year, month, day)
+(per_day   <- summarise(daily, flights = n()))
+(per_month <- summarise(per_day, flights = sum(flights)))
+(per_year  <- summarise(per_month, flights = sum(flights)))
+```
+También, si deseas deshacer la agrupación, por ejemplo, si quieres contar el total de vuelos sin agrupar:
+
+```{r}
+daily %>% 
+  ungroup() %>%             # deshacemoos la agrupación por fecha
+  summarise(flights = n())  # tooooooodos los vuelos :)
+```
+
+
+#### Ejercicios
+
+**19.** Mira el número de vuelos cancelados por día e intenta encontrar algún patrón. ¿Está relacionada la proporción de vuelos cancelados con el retraso medio? Hint:
+
+  * Crear una nueva variable/columna que indique si un vuelo se ha cancelado o no (definiremos `cancelado = (is.na(arr_delay) | is.na(dep_delay))`),
+  * No olvides agrupar (año, mes, día ) y luego cuenta el número total de vuelos y el número de cancelados,
+  * Haz un plot de cancelados vs. número de vuelos e intena describir posibles patrones,
+  * Para responder la pregunta tendrás que crear una variable `prop_cancelados` (media) y la media de `dep_delay` o `arr_delay`,
+  * Realiza los diagramas de dispersión correspondientes e intenta describir posibles patrones.
+
+```{r, echo=FALSE, eval=FALSE}
+cancelled_per_day <- 
+  flights %>%
+  mutate(cancelled = (is.na(arr_delay) | is.na(dep_delay))) %>%
+  group_by(year, month, day) %>%
+  summarise(
+    cancelled_num = sum(cancelled),
+    flights_num = n(),
+  )
+
+ggplot(cancelled_per_day) +
+  geom_point(aes(x = flights_num, y = cancelled_num)) 
+
+# Respuesta a la pregunta:
+
+cancelled_and_delays <- 
+  flights %>%
+  mutate(cancelled = (is.na(arr_delay) | is.na(dep_delay))) %>%
+  group_by(year, month, day) %>%
+  summarise(
+    cancelled_prop = mean(cancelled),
+    avg_dep_delay = mean(dep_delay, na.rm = TRUE),
+    avg_arr_delay = mean(arr_delay, na.rm = TRUE)
+  ) %>%
+  ungroup()
+
+ggplot(cancelled_and_delays) +
+  geom_point(aes(x = avg_dep_delay, y = cancelled_prop))
+
+ggplot(cancelled_and_delays) +
+  geom_point(aes(x = avg_arr_delay, y = cancelled_prop))
+```
+
+
+20. ¿A qué hora del día (`hour`) deberías viajar si quieres evitar retrasos tanto como sea posible? Hints:
+  * Agrupar por la variable que consideres oportuna (vamos que es `hour`), 
+  * Resume el tiempo que ha demorado el vuelo (¿es más importante `arr_delay` o `dep_delay`?),
+  * Reordena adecuadamente.
+
+```{r, echo=FALSE, eval=FALSE}
+flights %>%
+  group_by(hour) %>%
+  summarise(arr_delay = mean(arr_delay, na.rm = TRUE)) %>%
+  arrange(arr_delay)
+```
+

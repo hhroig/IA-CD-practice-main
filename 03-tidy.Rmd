@@ -1,0 +1,306 @@
+# Tidy {#tidy}
+
+## Datos
+
+Vamos a trabajar con unos datasets sencillos que recopilan la misma información sobre 4 variables: país (*country*), año (*year*), población (*population*) y casos (*cases*) de Tuberculosis (TB). ¿Puedes identificar cuál de ellos está en forma *tidy*?
+
+```{r}
+library(tidyverse)
+table1
+table2
+table3
+table4a
+table4b
+```
+
+## Pivotar
+
+Generalmente, para ordenar tus datos (*tidying*) tendrás que seguir 2 pasos básicos:
+
+1. Identificar qué es variable (lo que irá en las columnas) y qué es observación (lo que irá en las filas);
+
+2. Resolver una de estas situaciones:
+  * Las variables podrían estar distribuidas en varias columnas
+  * Las observaciones podrían estar distribuidas en varias filas
+  * Ambas a la vez :(
+  
+Esto lo resolveremos con las funciones `pivot_longer()` y `pivot_wider()`.
+
+### *Pivot longer*
+
+Cuando nuestro dataset tiene por columnas los valores de una variable, usamos `pivot_longer()`. La `table4a` es un caso claro de esta situación: tenemos dos columnas con nombre `1990` y `2000`, que corresponden a valores de la variable `year`. El proceso para hacerlos *tidy* pasa por arreglar estas columnas creando dos nuevas variables: `year` y `cases`:
+
+```{r}
+table4a %>% 
+  pivot_longer(c(`1999`, `2000`), names_to = "year", values_to = "cases")
+```
+
+De forma similar, podemos arreglar `table4b`:
+
+```{r}
+table4b %>% 
+  pivot_longer(c(`1999`, `2000`), names_to = "year", values_to = "population")
+```
+
+Finalmente, si queremos unir ambos resultados, podemos usar `left_join`, que ya estudiaremos con los *Datos relacionales*:
+
+```{r}
+tidy4a <- table4a %>% 
+  pivot_longer(c(`1999`, `2000`), names_to = "year", values_to = "cases")
+tidy4b <- table4b %>% 
+  pivot_longer(c(`1999`, `2000`), names_to = "year", values_to = "population")
+left_join(tidy4a, tidy4b)
+```
+
+### *Pivot wider*
+
+Lo opuesto a *alargar* un dataset es hacerlo *más ancho*. Por tanto, es de entender que con `pivot_wider()` crearemos más columnas. Si prestamos atención a la `table2` notaremos que cada observación a sido expandida en dos filas que recogen los casos y la población. Esto lo solucionamos creando dos nuevas variables (columnas) para los casos y la población:
+
+```{r}
+table2 %>%
+    pivot_wider(names_from = type, values_from = count)
+```
+
+### Ejercicios
+
+1. Aunque opuestas, no son perfectamente simétricas. ¿Puedes deducir por qué?
+
+```{r, eval=FALSE}
+stocks <- tibble(
+  year   = c(2015, 2015, 2016, 2016),
+  half  = c(   1,    2,     1,    2),
+  return = c(1.88, 0.59, 0.92, 0.17)
+)
+stocks %>% 
+  pivot_wider(names_from = year, values_from = return) %>% 
+  pivot_longer(`2015`:`2016`, names_to = "year", values_to = "return")
+```
+
+2. Intenta arreglarlo usando el argumento `names_transform = list(year = as.numeric )`.
+
+```{r, echo=FALSE, eval=FALSE}
+stocks %>% 
+  pivot_wider(names_from = year, values_from = return) %>% 
+  pivot_longer(`2015`:`2016`, names_to = "year", values_to = "return",
+               names_transform = list(year = as.numeric )) %>% 
+  select(year, half, return) %>% 
+  arrange(year)
+```
+
+3. ¿Por qué esto no funciona?
+
+```{r, eval=FALSE}
+table4a %>% 
+  pivot_longer(c(1999, 2000), names_to = "year", values_to = "cases")
+```
+
+4. ¿Qué pasa si ampliamos esta tabla?
+
+```{r}
+people <- tribble(
+  ~name,             ~names,  ~values,
+  #-----------------|--------|------
+  "Phillip Woods",   "age",       45,
+  "Phillip Woods",   "height",   186,
+  "Phillip Woods",   "age",       50,
+  "Jessica Cordero", "age",       37,
+  "Jessica Cordero", "height",   156
+)
+```
+
+```{r, eval=F, echo=F}
+pivot_wider(people, names_from="name", values_from = "values")
+```
+
+```{r, eval=FALSE, echo=FALSE}
+people %>%
+  group_by(name, names) %>%
+  mutate(obs = row_number()) %>% 
+  pivot_wider(names_from = "name", values_from = "values")
+```
+
+
+## Separar y unir
+
+La `table3` tiene una columna `rate` con los casos y la población. Evidentemente, esta proporción no es realmente útil porque no está calculada. Con `separate()` podemos "partirla" en dos nuevas columnas con la información que deseamos:
+
+```{r}
+table3 %>% 
+  separate(rate, into = c("cases", "population"))
+```
+Automáticamente, la función separa los datos cuando encuentra algún caracter no alfanumérico. Esto se puede personalizar:
+
+```{r}
+table3 %>% 
+  separate(rate, into = c("cases", "population"), sep = "/")
+```
+
+Habrás notado que al separar convierte las nuevas a variables a tipo `character`. Para lidiar con esto, podemos decirle a `separate` que encuentre el tipo de datos correspondiente a cada caso:
+
+```{r}
+table3 %>% 
+  separate(rate, into = c("cases", "population"), convert = TRUE)
+```
+
+También podemos separar enteros si proporcionamos el número de dígitos a separar:
+
+```{r}
+table3 %>% 
+  separate(year, into = c("first_3", "last_digit"), sep = -1) %>% 
+  separate(rate, into = c("cases", "population"), convert = TRUE)
+
+table3 %>% 
+  separate(year, into = c("century", "year"), sep = 2) %>% 
+  separate(rate, into = c("cases", "population"), convert = TRUE)
+```
+
+Con `unite()` hacemos justamente lo contrario, especificando el separador (por defecto será `_`) que en este caso será un espacio en blanco:
+
+```{r}
+table5 %>% 
+  unite(new, century, year, sep = "")
+```
+### Ejercicios
+
+5. Experimenta con los argumentos `extra` y `fill` de `separate()`, usando estos datos:
+
+```{r}
+tibble(x = c("a,b,c", "d,e,f,g", "h,i,j")) %>% 
+  separate(x, c("one", "two", "three"))
+
+tibble(x = c("a,b,c", "d,e", "f,g,i")) %>% 
+  separate(x, c("one", "two", "three"))
+```
+
+
+## Lidiar con los datos faltantes
+
+Habrás notado que al cambiar la forma en que presentamos los datos, pueden aparecer valores perdidos (`NA`s). Estos perdidos pueden ser de dos formas:
+
+1. Explícitos, cuando vemos un `NA` en los datos.
+2. Implícitos, cuando no están presentes en los datos.
+
+¿Podrías identificarlos aquí?
+
+```{r}
+stocks <- tibble(
+  year   = c(2015, 2015, 2015, 2015, 2016, 2016, 2016),
+  qtr    = c(   1,    2,    3,    4,    2,    3,    4),
+  return = c(1.88, 0.59, 0.35,   NA, 0.92, 0.17, 2.66)
+)
+```
+
+Observa cómo los implícitos pasan a ser explícitos:
+
+```{r}
+stocks %>% 
+  pivot_wider(names_from = year, values_from = return)
+```
+
+Si hacemos la operación inversa con `pivot_longer()`, tal vez no deseamos que esos perdidos aparezcan de forma explícita:
+
+```{r}
+stocks %>% 
+  pivot_wider(names_from = year, values_from = return) %>% 
+  pivot_longer(
+    cols = c(`2015`, `2016`), 
+    names_to = "year", 
+    values_to = "return", 
+    values_drop_na = TRUE
+  )
+```
+Por otro lado, si queremos que los perdidos implícitos aparezcan de forma explícita (sí, ¡vaya lío!):
+
+```{r}
+stocks %>% 
+  complete(year, qtr)
+```
+
+### Ejercicios
+
+6. Otra función interesante es `fill`. ¿Puedes entender cómo funciona a partir de este ejemplo?
+
+```{r}
+treatment <- tribble(
+  ~ person,           ~ treatment, ~response,
+  "Derrick Whitmore", 1,           7,
+  NA,                 2,           10,
+  NA,                 3,           9,
+  "Katherine Burke",  1,           4
+)
+
+treatment
+
+treatment %>% 
+  fill(person)
+```
+
+7. ¿Para qué sirve el argumento `direction` de `fill()`?
+
+
+## Case study
+
+Vamos con unos datos reales. En este caso, usaremos el dataset `who` de `dplyr`, con información sobre el número de casos de TB en el 2014, proporcionados por la Organización Mundial de la Salud (OMS, o WHO en inglés).
+
+```{r}
+data("who")
+```
+
+El primer paso es crear una nueva columna auxiliar para agrupar las categorías `new_sp_m014` a `new_rel_f65`, que no parecen ser variables:
+
+```{r}
+who1 <- who %>% 
+  pivot_longer(
+    cols = new_sp_m014:newrel_f65, 
+    names_to = "key", 
+    values_to = "cases", 
+    values_drop_na = TRUE
+  )
+who1
+```
+
+Antes de separar la columna `key`, de acuerdo a la información consultada en la ayuda `?who`, tenemos que lidiar con unos *typos* muy difíciles de observar: hay cierta inconsistencia entre `new_rel` y `newrel`. Para resolver esto, solo tenemos que emplear una de las funciones de `stringr`... **Arréglalo y guarda los datos en un nuevo tibble `who2`**.
+
+```{r, echo=FALSE}
+who2 <- who1 %>% 
+  mutate(key = stringr::str_replace(key, "newrel", "new_rel"))
+who2
+```
+
+Ahora vamos a hacer dos pases de `separate()` . Primero, separamos todo lo que esté unido por `_`:
+
+```{r}
+who3 <- who2 %>% 
+  separate(key, c("new", "type", "sexage"), sep = "_")
+who3
+```
+
+**Antes del segundo pase, elimina lo que no te interesa: `new`, `iso2` e `iso3`**. Cuando lo hayas hecho, guarda los nuevos datos en `who4`, y hacemos al segundo `separate()` para obtener el sexo y rangos de edades por separado:
+
+```{r, echo = FALSE}
+who4 <- who3 %>% 
+  select(-new, -iso2, -iso3)
+```
+```{r}
+who5 <- who4 %>% 
+  separate(sexage, c("sex", "age"), sep = 1)
+who5
+```
+
+### Ejercicios
+
+8. Escribe todas las transformaciones con un único *pipe*.
+
+9. Para cada país, año y sexo calcula el número total de casos de TB. Haz un plot de los resultados, de la forma que consideres más informativa.
+
+```{r, eval=FALSE, echo=FALSE}
+who5 %>%
+  group_by(country, year, sex) %>%
+  filter(year > 1995) %>%
+  summarise(cases = sum(cases)) %>%
+  unite(country_sex, country, sex, remove = FALSE) %>%
+  ggplot(aes(x = year, y = cases, group = country_sex, colour = sex)) +
+  geom_line() +
+  theme_light()
+```
+

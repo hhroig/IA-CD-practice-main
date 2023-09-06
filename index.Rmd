@@ -1,0 +1,29 @@
+---
+title: "Programación en **R**"
+subtitle: "Inteligencia Artificial & Ciencia de Datos"
+author: "Harold A. Hernández-Roig"
+date: "8-9 / 9 / 2023"
+site: bookdown::bookdown_site
+documentclass: book
+output:
+  bookdown::gitbook: default
+  #bookdown::pdf_book: default
+---
+
+# Introducción
+
+Estos ejercicios 💪 complementan los que ya tenemos en las diapositivas del curso: <https://hhroig.github.io/IA-CD-xaringan-slides/>.
+
+## Referencias
+
+Chang, Winston. 2012. R Graphics Cookbook: Practical Recipes for Visualizing Data. O'Reilly Media. (Versión parcial online libre: <http://www.cookbook-r.com/Graphs/>).
+
+Wickham, Hadley. 2015. Advanced R. Chapman & Hall. (Versión online libre: <http://adv-r.had.co.nz/>)
+
+Wickham, Hadley, and Garrett Grolemund. 2017. R for Data Science: Import, Tidy, Transform, Visualize, and Model Data. 1st ed. O’Reilly Media. (Versión online libre: [r4ds](https://r4ds.had.co.nz/index.html)).
+
+Wickham, Hadley, Çetinkaya-Rundel, Mine, and Grolemund, Garrett. 2023. R for Data Science: Import, Tidy, Transform, Visualize, and Model Data. 2nd ed. O’Reilly Media. (Versión online libre: [r4ds2e](https://r4ds.hadley.nz/)).
+
+Holtz, Yan. 2018. The R Graph Gallery. Recurso online: <https://www.r-graph-gallery.com/index.html>
+
+<!-- If you need PDF output, uncomment bookdown::pdf_book above in YAML. You will need a LaTeX installation, e.g., https://yihui.name/tinytex/ -->

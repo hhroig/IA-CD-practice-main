@@ -1,0 +1,79 @@
+# Nuevo proyecto {#visualiza}
+
+Recuerda, trabajaremos en un *script* de **R**, no en la *Consola*. Además lo haremos de forma segura y organizada creando un *RStudio Project*:
+
+* Ir a *File > New Project...*
+* Podemos crear un nuevo directorio donde guardar nuestros scripts, figuras, datos, etc.;
+* Por ejemplo, en el Escritorio creamos el proyecto "*intro_R*";
+* Siempre que trabajemos en este proyecto, "*intro_R*" será nuestro *Working Directory*
+* Ahora, creamos un nuevo script "*plots_mpg.R*" y a programar!
+
+## Paquetes
+
+Necesitamos cargar el paquete `tidyverse`:
+
+```{r, eval=TRUE}
+library(tidyverse)
+```
+
+Notamos que este comando carga a su vez una serie de paquetes, no solo uno. Los *conflictos* son importantes a tener en cuenta porque indican que dos paquetes diferentes comparten el mismo nombre para una función. Por ejemplo, la función `select` está repetida tanto en el paquete `dplyr` como en el paquete `MASS`. Si cargamos ambos paquetes en nuestro script, entonces para evitar conflictos debemos especificar `dplyr::select(...)` o `MASS::select(...)`.
+
+## Datos
+
+Vamos a trabajar con los **data frames** `mpg`:
+
+```{r}
+mpg
+```
+
+y `diamonds` de `ggplot2`:
+
+```{r}
+head(diamonds, n = 10)
+```
+
+Un *data frame* es una colección rectangular de datos donde las variables están organizadas por columnas y las observaciones por filas. Si ejecutamos `?mpg` (o `?diamonds`) el panel de Ayuda brinda una descripción de los datos.
+
+## Visualización con R base
+
+Nos vamos a concentrar en las variables `displ` y `hwy`:
+
+```{r}
+plot(mpg$displ, mpg$hwy)
+```
+
+Esto es un *diagrama de dispersión*. Si hacemos `?plot` vemos las características que podemos variar. Por ejemplo:
+
+```{r}
+plot(mpg$displ, mpg$hwy,
+     main = "Consumo de combustible",
+     xlab = "Cilindrada (litros)",
+     ylab = "Consumo (millas por galón)", 
+     pch = 5,
+     col = "red")
+```
+
+## Visualización con `ggplot2`
+
+El modelo básico para crear un *ggplot* tiene la forma:
+
+```{r, eval=F}
+ggplot(data = <DATA>) + 
+  <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
+```
+
+Así que para emular el gráfico previo hacemos:
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy))
+```
+
+... más sobre `ggplot` el 21/10 con Pablo Morala 😉.
+
+### Ejercicios
+
+1. Hacer el diagrama de dispersión de `hwy` vs. `cyl` ¿qué crees del gráfico obtenido?
+2. ¿Qué pasa si hacemos el diagrama de `class` vs. `drv`? ¿por qué crees que hay menos puntos?
+3. Exploremos los gráficos que podemos hacer con `R base`: [r-graph-gallery.com/base-R](https://r-graph-gallery.com/base-R.html)  
+

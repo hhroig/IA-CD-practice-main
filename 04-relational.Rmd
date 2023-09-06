@@ -1,0 +1,188 @@
+# Relational Data {#relational}
+
+## Datos
+
+Vamos a trabajar con los datos de `nycflights13`: `airlines`, `airports`, `planes`, `weather`
+
+```{r}
+library(tidyverse)
+library(nycflights13)
+data("airlines", "airports", "planes", "weather")
+```
+
+Las relaciones entre ellos se resumen en:
+
+* `flights` con `planes` a través de la variable `tailnum`.
+* `flights` con `airlines` a través de la variable `carrier`.
+* `flights` con `airports` a través de las variables `origin` y `dest`.
+* `flights` con `weather` a través de las variables `origin` (lugar) y `year`, `month`, `day`, `hour` (fecha + hora).
+
+## Keys
+
+La variable `tailnum` es un identificador único de cada avión para los datos `planes`:
+
+```{r}
+planes %>% 
+  count(tailnum) %>% 
+  filter(n > 1)
+```
+
+Algunas tablas no tienen un *key* primario. ¿Qué crees de estos casos? ¿Tienen sentido? ¿Se te ocurre alguna otra combinación de variables que pueda identificar de forma única a cada observación?
+
+```{r, eval=FALSE}
+flights %>% 
+  count(year, month, day, flight) %>% 
+  filter(n > 1)
+
+flights %>% 
+  count(year, month, day, tailnum) %>% 
+  filter(n > 1)
+```
+
+Recuerda que podemos añadir una *surrogate key*:
+
+```{r, eval=FALSE}
+flights %>%
+  arrange(year, month, day, sched_dep_time, carrier, flight) %>%
+  mutate(flight_id = row_number()) %>%
+  glimpse()
+```
+
+## Mutating Joins
+
+Primero vamos a reducir un poco la cantidad de columnas de `flights` para notar las columnas añadidas:
+
+```{r}
+flights2 <- flights %>% 
+  select(year:day, hour, origin, dest, tailnum, carrier)
+```
+
+Veamos cómo definir la key/clave de referencia:
+
+* Por defecto: `by = NULL` usa las variables comunes a ambas tablas:
+
+```{r, eval=FALSE}
+flights2 %>% 
+  left_join(weather)
+```
+
+* Podemos introducir un vector de caracteres `by = x`, donde `x` es alguna de las columnas en común. A continuación, lo hacemos para `by = tailnum`. ¿Qué son `year.x` y `year.y`?
+
+
+```{r, eval = FALSE}
+flights2 %>% 
+  left_join(planes, by = "tailnum")
+```
+
+
+* Podemos introducir un vector de caracteres con nombre: `by = c("a" = "b")`. Esto empareja las variables `a` (de la tabla `x`) y `b` (de la tabla `y`). Por ejemplo, para combinar `flights` y `airports` necesitamos combinar el destino (`dest`) u origen (`origin`) en `fligths` con el código de cada aeropuerto (`faa`) en `airports`:
+
+```{r, eval = FALSE}
+flights2 %>% 
+  left_join(airports, c("dest" = "faa"))
+
+flights2 %>% 
+  left_join(airports, c("origin" = "faa"))
+```
+
+### Ejercicios:
+
+1. Añadir latitud y longitud (`lat` y `lon`) del origen y destino a la tabla `flights`.
+
+```{r, eval=FALSE, echo=FALSE}
+airport_locations <- airports %>%
+  select(faa, lat, lon)
+
+flights %>%
+  select(year:day, hour, origin, dest) %>%
+  left_join(
+    airport_locations,
+    by = c("origin" = "faa")
+  ) %>%
+  left_join(
+    airport_locations,
+    by = c("dest" = "faa")
+  )
+```
+
+```{r, eval=FALSE, echo=FALSE}
+airport_locations <- airports %>%
+  select(faa, lat, lon)
+
+flights %>%
+  select(year:day, hour, origin, dest) %>%
+  left_join(
+    airport_locations,
+    by = c("origin" = "faa")
+  ) %>%
+  left_join(
+    airport_locations,
+    by = c("dest" = "faa"),
+    suffix = c("_origin", "_dest")
+    # existing lat and lon variables in tibble gain the _origin suffix
+    # new lat and lon variables are given _dest suffix
+  )
+```
+
+## Filtering Joins
+
+Los semi-joins son útiles cuando hacemos un resumen de los datos y luego queremos emparejar estos resultados con las observaciones originales. Por ejemplo, si calculamos los 10 destinos más populares:
+
+```{r}
+top_dest <- flights %>%
+  count(dest, sort = TRUE) %>%
+  head(10)
+top_dest
+```
+
+... y luego queremos encontrar todos los vuelos (en `flights`) que tuvieron este destino:
+
+```{r, eval = FALSE}
+flights %>% 
+  semi_join(top_dest)
+```
+
+Los anti-joins son útiles para diagnosticar las discrepancias en las uniones. Por ejemplo, en `planes` hay aviones que no aparecen en `flights`:
+
+```{r, eval = FALSE}
+flights %>%
+  anti_join(planes, by = "tailnum") %>%
+  count(tailnum, sort = TRUE)
+```
+
+### Ejercicios
+
+2. Encuentra otra forma de obtener el mismo resultado que:
+
+```{r, eval = FALSE}
+flights %>% 
+  semi_join(top_dest)
+```
+sin usar `semi_join()`. Hint: Filtrar los destinos de `flights` de acuerdo a los 10 más populares.
+
+```{r, eval=FALSE, echo=FALSE}
+flights %>% 
+  filter(dest %in% top_dest$dest)
+```
+
+3. Filtra `flights` para que solo recoja los datos de aquellos aviones que han volado al menos 100 veces.
+
+```{r, eval = FALSE, echo=FALSE}
+# usando semi-join
+planes_gte100 <- flights %>%
+  filter(!is.na(tailnum)) %>%
+  group_by(tailnum) %>%
+  count() %>%
+  filter(n >= 100)
+
+flights %>%
+  semi_join(planes_gte100, by = "tailnum")
+
+# sin semi-join
+flights %>%
+  filter(!is.na(tailnum)) %>%
+  group_by(tailnum) %>%
+  mutate(n = n()) %>%
+  filter(n >= 100)
+```
+
