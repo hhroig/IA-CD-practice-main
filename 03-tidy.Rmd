@@ -54,7 +54,7 @@ left_join(tidy4a, tidy4b)
 
 ### *Pivot wider*
 
-Lo opuesto a *alargar* un dataset es hacerlo *más ancho*. Por tanto, es de entender que con `pivot_wider()` crearemos más columnas. Si prestamos atención a la `table2` notaremos que cada observación a sido expandida en dos filas que recogen los casos y la población. Esto lo solucionamos creando dos nuevas variables (columnas) para los casos y la población:
+Lo opuesto a *alargar* un dataset es hacerlo *más ancho*. Por tanto, es de entender que con `pivot_wider()` crearemos más columnas. Si prestamos atención a la `table2` notaremos que cada observación ha sido expandida en dos filas que recogen los casos y la población. Esto lo solucionamos creando dos nuevas variables (columnas) para los casos y la población:
 
 ```{r}
 table2 %>%
@@ -108,9 +108,12 @@ people <- tribble(
 )
 ```
 
-```{r, eval=F, echo=F}
+usando el comando:
+
+```{r, eval=F, echo=T}
 pivot_wider(people, names_from="name", values_from = "values")
 ```
+
 
 ```{r, eval=FALSE, echo=FALSE}
 people %>%
@@ -304,3 +307,4 @@ who5 %>%
   theme_light()
 ```
 
+10. Guarda el último de tus data.frames o tibbles usando un formato de `R`. Estos datos los utilizaremos más adelante...
