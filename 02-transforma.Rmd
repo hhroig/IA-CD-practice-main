@@ -66,7 +66,7 @@ Algo interesante de `filter()` es que deja fuera directamente los `NA`s.
    c. Fueron operados por "United", "American" o "Deta"
    d. Salieron en el verano (Julio, Agosto y Septiembre)
    e. Llegaron más de 2hrs tarde, pero no salieron tarde
-   f. Se retrasaron al menos 1hr, pero compesaron 30min en vuelo
+   f. Se retrasaron al menos 1hr, pero compensaron 30min en vuelo
    g. Salieron entre medianoche y 6am (inclusive)
 
 4. Busca la ayuda de `between()` e intenta simplificar un poco tus respuestas al ejercicio anterior.
@@ -145,13 +145,16 @@ También dispondremos de las "funciones de ayuda a la selección":
 * `contains("ijk")`: columnas que contienen la expresión “ijk”.
 * `matches(""[pt]xyz"")`: selecciona variables que coinciden con una expresión regular.
 * `num_range("x", 1:3)`: equivalente a seleccionr: `paste0("x", 1:3)`.
-* `everything()`: selecciona todas las variables. Útil si deseamos poner algunas columnas de interés al incio, porque `select()` no incluye columnas repetidas:
+* `everything()`: selecciona todas las variables. Útil si deseamos poner algunas columnas de interés al inicio, porque `select()` no incluye columnas repetidas:
 
 ```{r}
 flights %>%
   select(time_hour, air_time, everything()) %>% 
   head(5)
 ```
+
+Más en <https://dplyr.tidyverse.org/reference/select.html>.
+
 
 #### Ejercicios
 
@@ -163,7 +166,7 @@ flights %>%
 vars <- c("year", "month", "day", "dep_delay", "arr_delay")
 ```
 
-14. ¿QUé pasa con el siguiente código? ¿Debería seleccionar todas esas variables? Hint: mirar el argumento `ignore.case`.
+14. ¿Qué pasa con el siguiente código? ¿Debería seleccionar todas esas variables? Hint: mirar el argumento `ignore.case`.
 
 ```{r}
 select(flights, contains("TiMe"))
@@ -208,11 +211,11 @@ flights %>%
 
 **17.** ¿Qué relación crees que habrá entre `dep_time`, `sched_dep_time` y `dep_delay`? Encuentra el número de observaciones en las que no se cumple tu hipótesis.
 
-**18.** Encuentra los 10 vuelos que más se retrasaron.
+18. Encuentra los 10 vuelos que más se retrasaron en salir.
 
 ### Resumir variables
 
-Con `summarise()` logramos "resumir" la información de determinadas variables, de acuerdo a cierta función que fijemos (media, mediana, IQR, etc.). Debes tener en cuenta que esto "colapsa" el data frame incial.
+Con `summarise()` logramos "resumir" la información de determinadas variables, de acuerdo a cierta función que fijemos (media, mediana, IQR, etc.). Debes tener en cuenta que esto "colapsa" el data frame inicial.
 
 ```{r}
 summarise(flights, delay = mean(dep_delay, na.rm = TRUE))
@@ -226,7 +229,7 @@ mean_m_y <-  flights %>%
   summarise(delay = mean(dep_delay, na.rm = TRUE)) 
 mean_m_y
 ```
-Cambiando la variable de agrupamiento (debe ser categórica) podemos obtener la media (o cualqiuer otro estadístico que deseemos) para cada categoría. Veamos un ejemplo en combinación con `ggplot`:
+Cambiando la variable de agrupamiento (debe ser categórica) podemos obtener la media (o cualquier otro estadístico que deseemos) para cada categoría. Veamos un ejemplo en combinación con `ggplot`:
 
 ```{r}
 delays <- flights %>% 
@@ -268,7 +271,7 @@ daily %>%
 
   * Crear una nueva variable/columna que indique si un vuelo se ha cancelado o no (definiremos `cancelado = (is.na(arr_delay) | is.na(dep_delay))`),
   * No olvides agrupar (año, mes, día ) y luego cuenta el número total de vuelos y el número de cancelados,
-  * Haz un plot de cancelados vs. número de vuelos e intena describir posibles patrones,
+  * Haz un plot de cancelados vs. número de vuelos e intenta describir posibles patrones,
   * Para responder la pregunta tendrás que crear una variable `prop_cancelados` (media) y la media de `dep_delay` o `arr_delay`,
   * Realiza los diagramas de dispersión correspondientes e intenta describir posibles patrones.
 
@@ -281,6 +284,8 @@ cancelled_per_day <-
     cancelled_num = sum(cancelled),
     flights_num = n(),
   )
+
+cancelled_per_day
 
 ggplot(cancelled_per_day) +
   geom_point(aes(x = flights_num, y = cancelled_num)) 
