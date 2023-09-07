@@ -197,10 +197,10 @@ flights %>%
 
 #### Ejercicios
 
-**15.** Convertir `dep_time` y `sched_dep_time` a minutos transcurridos desde la medianoche. Notar que son variables importantes pero con un formato difícil de trabajar (es complicado hacer operaciones artiméticas con ellos). Sigue las siguientes directrices:
+**15.** Convertir `dep_time` y `sched_dep_time` a minutos transcurridos desde la medianoche. Notar que son variables importantes pero con un formato difícil de trabajar (es complicado hacer operaciones aritméticas con ellos). Sigue las siguientes directrices:
 
-  * Una observación de `dep_time` sería por ejemplo `2021` que indica las 20:21hrs (8:21pm).
-  * Para obtener las horas transcurridas dede la medianoche hasta las 20:21hrs tendremos que usar la división entera `2021 %/% 100 == 20`. Luego es fácil obtenir los minutos multiplicando por 60.
+  * Una observación de `dep_time` sería por ejemplo `2021` que indica las 20:21 hrs (8:21 pm).
+  * Para obtener las horas transcurridas desde la medianoche hasta las 20:21 hrs tendremos que usar la división entera `2021 %/% 100 == 20`. Luego es fácil obtener los minutos multiplicando por 60.
   * Los 21 minutos restantes podemos obtenerlos con el resto de la división `2021 %% 100 == 21`... no olvides sumar ambas cantidades
   * Finalmente, tendrás que lidiar con la medianoche, representada con `2400`. Primero, comprueba a cuántos minutos corresponde según nuestras operaciones. Luego, considera calcular el resto de la división por esta cantidad de minutos (siempre que `x <= y` y ambos sean positivos, tendremos `x %% y == 0`).
 
