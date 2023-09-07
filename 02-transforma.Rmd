@@ -2,7 +2,7 @@
 
 ## Datos
 
-Vamos a trabajar con el **data frame** [`nycflights13::flights`](https://rdrr.io/cran/nycflights13/man/flights.html). Una vez más ten en cuanta los "conflictos" y asegúrate de usar la función correcta (`paquete_correcto::fun_repetida(...)`).
+Vamos a trabajar con el **data.frame** [`nycflights13::flights`](https://rdrr.io/cran/nycflights13/man/flights.html). Una vez más ten en cuanta los "conflictos" y asegúrate de usar la función correcta (`paquete_correcto::fun_repetida(...)`).
 
 ```{r}
 library(nycflights13)

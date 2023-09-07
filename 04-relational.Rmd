@@ -2,7 +2,7 @@
 
 ## Datos
 
-Vamos a trabajar con los datos de `nycflights13`: `airlines`, `airports`, `planes`, `weather`
+Vamos a trabajar con los datos del paquete `nycflights13`: `airlines`, `airports`, `planes`, `weather`
 
 ```{r}
 library(tidyverse)

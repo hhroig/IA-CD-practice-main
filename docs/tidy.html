@@ -4,19 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Tidy | Big Analytics VI: Programación en R</title>
-  <meta name="description" content="4 Tidy | Big Analytics VI: Programación en R" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <title>4 Tidy | Programación en R</title>
+  <meta name="description" content="4 Tidy | Programación en R" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Tidy | Big Analytics VI: Programación en R" />
+  <meta property="og:title" content="4 Tidy | Programación en R" />
   <meta property="og:type" content="book" />
-  
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Tidy | Big Analytics VI: Programación en R" />
+  <meta name="twitter:title" content="4 Tidy | Programación en R" />
   
   
   
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="transforma.html"/>
 <link rel="next" href="relational.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -92,7 +91,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +104,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -119,6 +118,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 </head>
 
@@ -136,7 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#referencias"><i class="fa fa-check"></i><b>1.1</b> Referencias</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="visualiza.html"><a href="visualiza.html"><i class="fa fa-check"></i><b>2</b> Visualización</a>
+<li class="chapter" data-level="2" data-path="visualiza.html"><a href="visualiza.html"><i class="fa fa-check"></i><b>2</b> Nuevo proyecto</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="visualiza.html"><a href="visualiza.html#paquetes"><i class="fa fa-check"></i><b>2.1</b> Paquetes</a></li>
 <li class="chapter" data-level="2.2" data-path="visualiza.html"><a href="visualiza.html#datos"><i class="fa fa-check"></i><b>2.2</b> Datos</a></li>
@@ -144,13 +147,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4" data-path="visualiza.html"><a href="visualiza.html#visualización-con-ggplot2"><i class="fa fa-check"></i><b>2.4</b> Visualización con <code>ggplot2</code></a>
 <ul>
 <li class="chapter" data-level="2.4.1" data-path="visualiza.html"><a href="visualiza.html#ejercicios"><i class="fa fa-check"></i><b>2.4.1</b> Ejercicios</a></li>
-<li class="chapter" data-level="2.4.2" data-path="visualiza.html"><a href="visualiza.html#cambiando-la-estética"><i class="fa fa-check"></i><b>2.4.2</b> Cambiando la <em>estética</em></a></li>
-<li class="chapter" data-level="2.4.3" data-path="visualiza.html"><a href="visualiza.html#las-facetas"><i class="fa fa-check"></i><b>2.4.3</b> Las <em>facetas</em></a></li>
-<li class="chapter" data-level="2.4.4" data-path="visualiza.html"><a href="visualiza.html#objetos-geométricos-geoms"><i class="fa fa-check"></i><b>2.4.4</b> Objetos geométricos <strong>geoms</strong></a></li>
-<li class="chapter" data-level="2.4.5" data-path="visualiza.html"><a href="visualiza.html#transformaciones-estadísticas"><i class="fa fa-check"></i><b>2.4.5</b> Transformaciones estadísticas</a></li>
-<li class="chapter" data-level="2.4.6" data-path="visualiza.html"><a href="visualiza.html#ajuste-de-posición-y-sistemas-de-coordenadas"><i class="fa fa-check"></i><b>2.4.6</b> Ajuste de posición y sistemas de coordenadas</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="visualiza.html"><a href="visualiza.html#resumen"><i class="fa fa-check"></i><b>2.5</b> Resumen</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="transforma.html"><a href="transforma.html"><i class="fa fa-check"></i><b>3</b> Transformaciones</a>
 <ul>
@@ -171,19 +168,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="tidy.html"><a href="tidy.html#pivot-longer"><i class="fa fa-check"></i><b>4.2.1</b> <em>Pivot longer</em></a></li>
 <li class="chapter" data-level="4.2.2" data-path="tidy.html"><a href="tidy.html#pivot-wider"><i class="fa fa-check"></i><b>4.2.2</b> <em>Pivot wider</em></a></li>
-<li class="chapter" data-level="4.2.3" data-path="tidy.html"><a href="tidy.html#ejercicios-13"><i class="fa fa-check"></i><b>4.2.3</b> Ejercicios</a></li>
+<li class="chapter" data-level="4.2.3" data-path="tidy.html"><a href="tidy.html#ejercicios-7"><i class="fa fa-check"></i><b>4.2.3</b> Ejercicios</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="tidy.html"><a href="tidy.html#separar-y-unir"><i class="fa fa-check"></i><b>4.3</b> Separar y unir</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="tidy.html"><a href="tidy.html#ejercicios-14"><i class="fa fa-check"></i><b>4.3.1</b> Ejercicios</a></li>
+<li class="chapter" data-level="4.3.1" data-path="tidy.html"><a href="tidy.html#ejercicios-8"><i class="fa fa-check"></i><b>4.3.1</b> Ejercicios</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="tidy.html"><a href="tidy.html#lidiar-con-los-datos-faltantes"><i class="fa fa-check"></i><b>4.4</b> Lidiar con los datos faltantes</a>
 <ul>
-<li class="chapter" data-level="4.4.1" data-path="tidy.html"><a href="tidy.html#ejercicios-15"><i class="fa fa-check"></i><b>4.4.1</b> Ejercicios</a></li>
+<li class="chapter" data-level="4.4.1" data-path="tidy.html"><a href="tidy.html#ejercicios-9"><i class="fa fa-check"></i><b>4.4.1</b> Ejercicios</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="tidy.html"><a href="tidy.html#case-study"><i class="fa fa-check"></i><b>4.5</b> Case study</a>
 <ul>
-<li class="chapter" data-level="4.5.1" data-path="tidy.html"><a href="tidy.html#ejercicios-16"><i class="fa fa-check"></i><b>4.5.1</b> Ejercicios</a></li>
+<li class="chapter" data-level="4.5.1" data-path="tidy.html"><a href="tidy.html#ejercicios-10"><i class="fa fa-check"></i><b>4.5.1</b> Ejercicios</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="relational.html"><a href="relational.html"><i class="fa fa-check"></i><b>5</b> Relational Data</a>
@@ -192,11 +189,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2" data-path="relational.html"><a href="relational.html#keys"><i class="fa fa-check"></i><b>5.2</b> Keys</a></li>
 <li class="chapter" data-level="5.3" data-path="relational.html"><a href="relational.html#mutating-joins"><i class="fa fa-check"></i><b>5.3</b> Mutating Joins</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="relational.html"><a href="relational.html#ejercicios-17"><i class="fa fa-check"></i><b>5.3.1</b> Ejercicios:</a></li>
+<li class="chapter" data-level="5.3.1" data-path="relational.html"><a href="relational.html#ejercicios-11"><i class="fa fa-check"></i><b>5.3.1</b> Ejercicios:</a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="relational.html"><a href="relational.html#filtering-joins"><i class="fa fa-check"></i><b>5.4</b> Filtering Joins</a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="relational.html"><a href="relational.html#ejercicios-18"><i class="fa fa-check"></i><b>5.4.1</b> Ejercicios</a></li>
+<li class="chapter" data-level="5.4.1" data-path="relational.html"><a href="relational.html#ejercicios-12"><i class="fa fa-check"></i><b>5.4.1</b> Ejercicios</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -208,7 +205,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Big Analytics VI: Programación en <strong>R</strong></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Programación en <strong>R</strong></a>
           </h1>
         </div>
 
@@ -216,26 +213,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="tidy" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Tidy</h1>
-<div id="datos-2" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Datos</h2>
+<div id="tidy" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Tidy<a href="tidy.html#tidy" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="datos-2" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Datos<a href="tidy.html#datos-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Vamos a trabajar con unos datasets sencillos que recopilan la misma información sobre 4 variables: país (<em>country</em>), año (<em>year</em>), población (<em>population</em>) y casos (<em>cases</em>) de Tuberculosis (TB). ¿Puedes identificar cuál de ellos está en forma <em>tidy</em>?</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="tidy.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb102-2"><a href="tidy.html#cb102-2" aria-hidden="true" tabindex="-1"></a>table1</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 4
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="tidy.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.1.2     ✔ readr     2.1.4
+## ✔ forcats   1.0.0     ✔ stringr   1.5.0
+## ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+## ✔ purrr     1.0.1     
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="tidy.html#cb3-1" tabindex="-1"></a>table1</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
 ##   country      year  cases population
-##   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+##   &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
 ## 1 Afghanistan  1999    745   19987071
 ## 2 Afghanistan  2000   2666   20595360
 ## 3 Brazil       1999  37737  172006362
 ## 4 Brazil       2000  80488  174504898
 ## 5 China        1999 212258 1272915272
 ## 6 China        2000 213766 1280428583</code></pre>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="tidy.html#cb104-1" aria-hidden="true" tabindex="-1"></a>table2</span></code></pre></div>
-<pre><code>## # A tibble: 12 x 4
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="tidy.html#cb5-1" tabindex="-1"></a>table2</span></code></pre></div>
+<pre><code>## # A tibble: 12 × 4
 ##    country      year type            count
-##    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;           &lt;int&gt;
+##    &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
 ##  1 Afghanistan  1999 cases             745
 ##  2 Afghanistan  1999 population   19987071
 ##  3 Afghanistan  2000 cases            2666
@@ -248,33 +255,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 China        1999 population 1272915272
 ## 11 China        2000 cases          213766
 ## 12 China        2000 population 1280428583</code></pre>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="tidy.html#cb106-1" aria-hidden="true" tabindex="-1"></a>table3</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 3
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="tidy.html#cb7-1" tabindex="-1"></a>table3</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
 ##   country      year rate             
-## * &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;            
+##   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            
 ## 1 Afghanistan  1999 745/19987071     
 ## 2 Afghanistan  2000 2666/20595360    
 ## 3 Brazil       1999 37737/172006362  
 ## 4 Brazil       2000 80488/174504898  
 ## 5 China        1999 212258/1272915272
 ## 6 China        2000 213766/1280428583</code></pre>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="tidy.html#cb108-1" aria-hidden="true" tabindex="-1"></a>table4a</span></code></pre></div>
-<pre><code>## # A tibble: 3 x 3
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="tidy.html#cb9-1" tabindex="-1"></a>table4a</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 3
 ##   country     `1999` `2000`
-## * &lt;chr&gt;        &lt;int&gt;  &lt;int&gt;
+##   &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;
 ## 1 Afghanistan    745   2666
 ## 2 Brazil       37737  80488
 ## 3 China       212258 213766</code></pre>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="tidy.html#cb110-1" aria-hidden="true" tabindex="-1"></a>table4b</span></code></pre></div>
-<pre><code>## # A tibble: 3 x 3
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="tidy.html#cb11-1" tabindex="-1"></a>table4b</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 3
 ##   country         `1999`     `2000`
-## * &lt;chr&gt;            &lt;int&gt;      &lt;int&gt;
+##   &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;
 ## 1 Afghanistan   19987071   20595360
 ## 2 Brazil       172006362  174504898
 ## 3 China       1272915272 1280428583</code></pre>
 </div>
-<div id="pivotar" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Pivotar</h2>
+<div id="pivotar" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Pivotar<a href="tidy.html#pivotar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Generalmente, para ordenar tus datos (<em>tidying</em>) tendrás que seguir 2 pasos básicos:</p>
 <ol style="list-style-type: decimal">
 <li><p>Identificar qué es variable (lo que irá en las columnas) y qué es observación (lo que irá en las filas);</p></li>
@@ -286,14 +293,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Ambas a la vez :(</li>
 </ul>
 <p>Esto lo resolveremos con las funciones <code>pivot_longer()</code> y <code>pivot_wider()</code>.</p>
-<div id="pivot-longer" class="section level3" number="4.2.1">
-<h3><span class="header-section-number">4.2.1</span> <em>Pivot longer</em></h3>
+<div id="pivot-longer" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> <em>Pivot longer</em><a href="tidy.html#pivot-longer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Cuando nuestro dataset tiene por columnas los valores de una variable, usamos <code>pivot_longer()</code>. La <code>table4a</code> es un caso claro de esta situación: tenemos dos columnas con nombre <code>1990</code> y <code>2000</code>, que corresponden a valores de la variable <code>year</code>. El proceso para hacerlos <em>tidy</em> pasa por arreglar estas columnas creando dos nuevas variables: <code>year</code> y <code>cases</code>:</p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="tidy.html#cb112-1" aria-hidden="true" tabindex="-1"></a>table4a <span class="sc">%&gt;%</span> </span>
-<span id="cb112-2"><a href="tidy.html#cb112-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(<span class="st">`</span><span class="at">1999</span><span class="st">`</span>, <span class="st">`</span><span class="at">2000</span><span class="st">`</span>), <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;cases&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 3
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="tidy.html#cb13-1" tabindex="-1"></a>table4a <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="tidy.html#cb13-2" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(<span class="st">`</span><span class="at">1999</span><span class="st">`</span>, <span class="st">`</span><span class="at">2000</span><span class="st">`</span>), <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;cases&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
 ##   country     year   cases
-##   &lt;chr&gt;       &lt;chr&gt;  &lt;int&gt;
+##   &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;
 ## 1 Afghanistan 1999     745
 ## 2 Afghanistan 2000    2666
 ## 3 Brazil      1999   37737
@@ -301,11 +308,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 China       1999  212258
 ## 6 China       2000  213766</code></pre>
 <p>De forma similar, podemos arreglar <code>table4b</code>:</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="tidy.html#cb114-1" aria-hidden="true" tabindex="-1"></a>table4b <span class="sc">%&gt;%</span> </span>
-<span id="cb114-2"><a href="tidy.html#cb114-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(<span class="st">`</span><span class="at">1999</span><span class="st">`</span>, <span class="st">`</span><span class="at">2000</span><span class="st">`</span>), <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;population&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 3
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="tidy.html#cb15-1" tabindex="-1"></a>table4b <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="tidy.html#cb15-2" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(<span class="st">`</span><span class="at">1999</span><span class="st">`</span>, <span class="st">`</span><span class="at">2000</span><span class="st">`</span>), <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;population&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
 ##   country     year  population
-##   &lt;chr&gt;       &lt;chr&gt;      &lt;int&gt;
+##   &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt;
 ## 1 Afghanistan 1999    19987071
 ## 2 Afghanistan 2000    20595360
 ## 3 Brazil      1999   172006362
@@ -313,15 +320,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 China       1999  1272915272
 ## 6 China       2000  1280428583</code></pre>
 <p>Finalmente, si queremos unir ambos resultados, podemos usar <code>left_join</code>, que ya estudiaremos con los <em>Datos relacionales</em>:</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="tidy.html#cb116-1" aria-hidden="true" tabindex="-1"></a>tidy4a <span class="ot">&lt;-</span> table4a <span class="sc">%&gt;%</span> </span>
-<span id="cb116-2"><a href="tidy.html#cb116-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(<span class="st">`</span><span class="at">1999</span><span class="st">`</span>, <span class="st">`</span><span class="at">2000</span><span class="st">`</span>), <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;cases&quot;</span>)</span>
-<span id="cb116-3"><a href="tidy.html#cb116-3" aria-hidden="true" tabindex="-1"></a>tidy4b <span class="ot">&lt;-</span> table4b <span class="sc">%&gt;%</span> </span>
-<span id="cb116-4"><a href="tidy.html#cb116-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(<span class="st">`</span><span class="at">1999</span><span class="st">`</span>, <span class="st">`</span><span class="at">2000</span><span class="st">`</span>), <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;population&quot;</span>)</span>
-<span id="cb116-5"><a href="tidy.html#cb116-5" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(tidy4a, tidy4b)</span></code></pre></div>
-<pre><code>## Joining, by = c(&quot;country&quot;, &quot;year&quot;)</code></pre>
-<pre><code>## # A tibble: 6 x 4
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="tidy.html#cb17-1" tabindex="-1"></a>tidy4a <span class="ot">&lt;-</span> table4a <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="tidy.html#cb17-2" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(<span class="st">`</span><span class="at">1999</span><span class="st">`</span>, <span class="st">`</span><span class="at">2000</span><span class="st">`</span>), <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;cases&quot;</span>)</span>
+<span id="cb17-3"><a href="tidy.html#cb17-3" tabindex="-1"></a>tidy4b <span class="ot">&lt;-</span> table4b <span class="sc">%&gt;%</span> </span>
+<span id="cb17-4"><a href="tidy.html#cb17-4" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(<span class="st">`</span><span class="at">1999</span><span class="st">`</span>, <span class="st">`</span><span class="at">2000</span><span class="st">`</span>), <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;population&quot;</span>)</span>
+<span id="cb17-5"><a href="tidy.html#cb17-5" tabindex="-1"></a><span class="fu">left_join</span>(tidy4a, tidy4b)</span></code></pre></div>
+<pre><code>## Joining with `by = join_by(country, year)`</code></pre>
+<pre><code>## # A tibble: 6 × 4
 ##   country     year   cases population
-##   &lt;chr&gt;       &lt;chr&gt;  &lt;int&gt;      &lt;int&gt;
+##   &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;      &lt;dbl&gt;
 ## 1 Afghanistan 1999     745   19987071
 ## 2 Afghanistan 2000    2666   20595360
 ## 3 Brazil      1999   37737  172006362
@@ -329,14 +336,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 China       1999  212258 1272915272
 ## 6 China       2000  213766 1280428583</code></pre>
 </div>
-<div id="pivot-wider" class="section level3" number="4.2.2">
-<h3><span class="header-section-number">4.2.2</span> <em>Pivot wider</em></h3>
+<div id="pivot-wider" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> <em>Pivot wider</em><a href="tidy.html#pivot-wider" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Lo opuesto a <em>alargar</em> un dataset es hacerlo <em>más ancho</em>. Por tanto, es de entender que con <code>pivot_wider()</code> crearemos más columnas. Si prestamos atención a la <code>table2</code> notaremos que cada observación a sido expandida en dos filas que recogen los casos y la población. Esto lo solucionamos creando dos nuevas variables (columnas) para los casos y la población:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="tidy.html#cb119-1" aria-hidden="true" tabindex="-1"></a>table2 <span class="sc">%&gt;%</span></span>
-<span id="cb119-2"><a href="tidy.html#cb119-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> type, <span class="at">values_from =</span> count)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 4
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="tidy.html#cb20-1" tabindex="-1"></a>table2 <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a href="tidy.html#cb20-2" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> type, <span class="at">values_from =</span> count)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
 ##   country      year  cases population
-##   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+##   &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
 ## 1 Afghanistan  1999    745   19987071
 ## 2 Afghanistan  2000   2666   20595360
 ## 3 Brazil       1999  37737  172006362
@@ -344,47 +351,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 China        1999 212258 1272915272
 ## 6 China        2000 213766 1280428583</code></pre>
 </div>
-<div id="ejercicios-13" class="section level3" number="4.2.3">
-<h3><span class="header-section-number">4.2.3</span> Ejercicios</h3>
+<div id="ejercicios-7" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Ejercicios<a href="tidy.html#ejercicios-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Aunque opuestas, no son perfectamente simétricas. ¿Puedes deducir por qué?</li>
 </ol>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="tidy.html#cb121-1" aria-hidden="true" tabindex="-1"></a>stocks <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb121-2"><a href="tidy.html#cb121-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">year   =</span> <span class="fu">c</span>(<span class="dv">2015</span>, <span class="dv">2015</span>, <span class="dv">2016</span>, <span class="dv">2016</span>),</span>
-<span id="cb121-3"><a href="tidy.html#cb121-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">half  =</span> <span class="fu">c</span>(   <span class="dv">1</span>,    <span class="dv">2</span>,     <span class="dv">1</span>,    <span class="dv">2</span>),</span>
-<span id="cb121-4"><a href="tidy.html#cb121-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">return =</span> <span class="fu">c</span>(<span class="fl">1.88</span>, <span class="fl">0.59</span>, <span class="fl">0.92</span>, <span class="fl">0.17</span>)</span>
-<span id="cb121-5"><a href="tidy.html#cb121-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb121-6"><a href="tidy.html#cb121-6" aria-hidden="true" tabindex="-1"></a>stocks <span class="sc">%&gt;%</span> </span>
-<span id="cb121-7"><a href="tidy.html#cb121-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> year, <span class="at">values_from =</span> return) <span class="sc">%&gt;%</span> </span>
-<span id="cb121-8"><a href="tidy.html#cb121-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="st">`</span><span class="at">2015</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2016</span><span class="st">`</span>, <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;return&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="tidy.html#cb22-1" tabindex="-1"></a>stocks <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb22-2"><a href="tidy.html#cb22-2" tabindex="-1"></a>  <span class="at">year   =</span> <span class="fu">c</span>(<span class="dv">2015</span>, <span class="dv">2015</span>, <span class="dv">2016</span>, <span class="dv">2016</span>),</span>
+<span id="cb22-3"><a href="tidy.html#cb22-3" tabindex="-1"></a>  <span class="at">half  =</span> <span class="fu">c</span>(   <span class="dv">1</span>,    <span class="dv">2</span>,     <span class="dv">1</span>,    <span class="dv">2</span>),</span>
+<span id="cb22-4"><a href="tidy.html#cb22-4" tabindex="-1"></a>  <span class="at">return =</span> <span class="fu">c</span>(<span class="fl">1.88</span>, <span class="fl">0.59</span>, <span class="fl">0.92</span>, <span class="fl">0.17</span>)</span>
+<span id="cb22-5"><a href="tidy.html#cb22-5" tabindex="-1"></a>)</span>
+<span id="cb22-6"><a href="tidy.html#cb22-6" tabindex="-1"></a>stocks <span class="sc">%&gt;%</span> </span>
+<span id="cb22-7"><a href="tidy.html#cb22-7" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> year, <span class="at">values_from =</span> return) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-8"><a href="tidy.html#cb22-8" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="st">`</span><span class="at">2015</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2016</span><span class="st">`</span>, <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;return&quot;</span>)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li><p>Intenta arreglarlo usando el argumento <code>names_transform = list(year = as.numeric )</code>.</p></li>
 <li><p>¿Por qué esto no funciona?</p></li>
 </ol>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="tidy.html#cb122-1" aria-hidden="true" tabindex="-1"></a>table4a <span class="sc">%&gt;%</span> </span>
-<span id="cb122-2"><a href="tidy.html#cb122-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(<span class="dv">1999</span>, <span class="dv">2000</span>), <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;cases&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="tidy.html#cb23-1" tabindex="-1"></a>table4a <span class="sc">%&gt;%</span> </span>
+<span id="cb23-2"><a href="tidy.html#cb23-2" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(<span class="dv">1999</span>, <span class="dv">2000</span>), <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;cases&quot;</span>)</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>¿Qué pasa si ampliamos esta tabla?</li>
 </ol>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="tidy.html#cb123-1" aria-hidden="true" tabindex="-1"></a>people <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
-<span id="cb123-2"><a href="tidy.html#cb123-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>name,             <span class="sc">~</span>names,  <span class="sc">~</span>values,</span>
-<span id="cb123-3"><a href="tidy.html#cb123-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#-----------------|--------|------</span></span>
-<span id="cb123-4"><a href="tidy.html#cb123-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Phillip Woods&quot;</span>,   <span class="st">&quot;age&quot;</span>,       <span class="dv">45</span>,</span>
-<span id="cb123-5"><a href="tidy.html#cb123-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Phillip Woods&quot;</span>,   <span class="st">&quot;height&quot;</span>,   <span class="dv">186</span>,</span>
-<span id="cb123-6"><a href="tidy.html#cb123-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Phillip Woods&quot;</span>,   <span class="st">&quot;age&quot;</span>,       <span class="dv">50</span>,</span>
-<span id="cb123-7"><a href="tidy.html#cb123-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Jessica Cordero&quot;</span>, <span class="st">&quot;age&quot;</span>,       <span class="dv">37</span>,</span>
-<span id="cb123-8"><a href="tidy.html#cb123-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Jessica Cordero&quot;</span>, <span class="st">&quot;height&quot;</span>,   <span class="dv">156</span></span>
-<span id="cb123-9"><a href="tidy.html#cb123-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="tidy.html#cb24-1" tabindex="-1"></a>people <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb24-2"><a href="tidy.html#cb24-2" tabindex="-1"></a>  <span class="sc">~</span>name,             <span class="sc">~</span>names,  <span class="sc">~</span>values,</span>
+<span id="cb24-3"><a href="tidy.html#cb24-3" tabindex="-1"></a>  <span class="co">#-----------------|--------|------</span></span>
+<span id="cb24-4"><a href="tidy.html#cb24-4" tabindex="-1"></a>  <span class="st">&quot;Phillip Woods&quot;</span>,   <span class="st">&quot;age&quot;</span>,       <span class="dv">45</span>,</span>
+<span id="cb24-5"><a href="tidy.html#cb24-5" tabindex="-1"></a>  <span class="st">&quot;Phillip Woods&quot;</span>,   <span class="st">&quot;height&quot;</span>,   <span class="dv">186</span>,</span>
+<span id="cb24-6"><a href="tidy.html#cb24-6" tabindex="-1"></a>  <span class="st">&quot;Phillip Woods&quot;</span>,   <span class="st">&quot;age&quot;</span>,       <span class="dv">50</span>,</span>
+<span id="cb24-7"><a href="tidy.html#cb24-7" tabindex="-1"></a>  <span class="st">&quot;Jessica Cordero&quot;</span>, <span class="st">&quot;age&quot;</span>,       <span class="dv">37</span>,</span>
+<span id="cb24-8"><a href="tidy.html#cb24-8" tabindex="-1"></a>  <span class="st">&quot;Jessica Cordero&quot;</span>, <span class="st">&quot;height&quot;</span>,   <span class="dv">156</span></span>
+<span id="cb24-9"><a href="tidy.html#cb24-9" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 </div>
-<div id="separar-y-unir" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Separar y unir</h2>
+<div id="separar-y-unir" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Separar y unir<a href="tidy.html#separar-y-unir" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La <code>table3</code> tiene una columna <code>rate</code> con los casos y la población. Evidentemente, esta proporción no es realmente útil porque no está calculada. Con <code>separate()</code> podemos “partirla” en dos nuevas columnas con la información que deseamos:</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="tidy.html#cb124-1" aria-hidden="true" tabindex="-1"></a>table3 <span class="sc">%&gt;%</span> </span>
-<span id="cb124-2"><a href="tidy.html#cb124-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;population&quot;</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 4
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="tidy.html#cb25-1" tabindex="-1"></a>table3 <span class="sc">%&gt;%</span> </span>
+<span id="cb25-2"><a href="tidy.html#cb25-2" tabindex="-1"></a>  <span class="fu">separate</span>(rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;population&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
 ##   country      year cases  population
-##   &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;     
+##   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     
 ## 1 Afghanistan  1999 745    19987071  
 ## 2 Afghanistan  2000 2666   20595360  
 ## 3 Brazil       1999 37737  172006362 
@@ -392,11 +399,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 China        1999 212258 1272915272
 ## 6 China        2000 213766 1280428583</code></pre>
 <p>Automáticamente, la función separa los datos cuando encuentra algún caracter no alfanumérico. Esto se puede personalizar:</p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="tidy.html#cb126-1" aria-hidden="true" tabindex="-1"></a>table3 <span class="sc">%&gt;%</span> </span>
-<span id="cb126-2"><a href="tidy.html#cb126-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;population&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 4
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="tidy.html#cb27-1" tabindex="-1"></a>table3 <span class="sc">%&gt;%</span> </span>
+<span id="cb27-2"><a href="tidy.html#cb27-2" tabindex="-1"></a>  <span class="fu">separate</span>(rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;population&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
 ##   country      year cases  population
-##   &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;     
+##   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     
 ## 1 Afghanistan  1999 745    19987071  
 ## 2 Afghanistan  2000 2666   20595360  
 ## 3 Brazil       1999 37737  172006362 
@@ -404,11 +411,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 China        1999 212258 1272915272
 ## 6 China        2000 213766 1280428583</code></pre>
 <p>Habrás notado que al separar convierte las nuevas a variables a tipo <code>character</code>. Para lidiar con esto, podemos decirle a <code>separate</code> que encuentre el tipo de datos correspondiente a cada caso:</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="tidy.html#cb128-1" aria-hidden="true" tabindex="-1"></a>table3 <span class="sc">%&gt;%</span> </span>
-<span id="cb128-2"><a href="tidy.html#cb128-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;population&quot;</span>), <span class="at">convert =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 4
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="tidy.html#cb29-1" tabindex="-1"></a>table3 <span class="sc">%&gt;%</span> </span>
+<span id="cb29-2"><a href="tidy.html#cb29-2" tabindex="-1"></a>  <span class="fu">separate</span>(rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;population&quot;</span>), <span class="at">convert =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
 ##   country      year  cases population
-##   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+##   &lt;chr&gt;       &lt;dbl&gt;  &lt;int&gt;      &lt;int&gt;
 ## 1 Afghanistan  1999    745   19987071
 ## 2 Afghanistan  2000   2666   20595360
 ## 3 Brazil       1999  37737  172006362
@@ -416,10 +423,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 China        1999 212258 1272915272
 ## 6 China        2000 213766 1280428583</code></pre>
 <p>También podemos separar enteros si proporcionamos el número de dígitos a separar:</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="tidy.html#cb130-1" aria-hidden="true" tabindex="-1"></a>table3 <span class="sc">%&gt;%</span> </span>
-<span id="cb130-2"><a href="tidy.html#cb130-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(year, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;first_3&quot;</span>, <span class="st">&quot;last_digit&quot;</span>), <span class="at">sep =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb130-3"><a href="tidy.html#cb130-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;population&quot;</span>), <span class="at">convert =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 5
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="tidy.html#cb31-1" tabindex="-1"></a>table3 <span class="sc">%&gt;%</span> </span>
+<span id="cb31-2"><a href="tidy.html#cb31-2" tabindex="-1"></a>  <span class="fu">separate</span>(year, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;first_3&quot;</span>, <span class="st">&quot;last_digit&quot;</span>), <span class="at">sep =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb31-3"><a href="tidy.html#cb31-3" tabindex="-1"></a>  <span class="fu">separate</span>(rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;population&quot;</span>), <span class="at">convert =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
 ##   country     first_3 last_digit  cases population
 ##   &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;       &lt;int&gt;      &lt;int&gt;
 ## 1 Afghanistan 199     9             745   19987071
@@ -428,10 +435,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 Brazil      200     0           80488  174504898
 ## 5 China       199     9          212258 1272915272
 ## 6 China       200     0          213766 1280428583</code></pre>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="tidy.html#cb132-1" aria-hidden="true" tabindex="-1"></a>table3 <span class="sc">%&gt;%</span> </span>
-<span id="cb132-2"><a href="tidy.html#cb132-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(year, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;century&quot;</span>, <span class="st">&quot;year&quot;</span>), <span class="at">sep =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb132-3"><a href="tidy.html#cb132-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;population&quot;</span>), <span class="at">convert =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 5
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="tidy.html#cb33-1" tabindex="-1"></a>table3 <span class="sc">%&gt;%</span> </span>
+<span id="cb33-2"><a href="tidy.html#cb33-2" tabindex="-1"></a>  <span class="fu">separate</span>(year, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;century&quot;</span>, <span class="st">&quot;year&quot;</span>), <span class="at">sep =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb33-3"><a href="tidy.html#cb33-3" tabindex="-1"></a>  <span class="fu">separate</span>(rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;population&quot;</span>), <span class="at">convert =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
 ##   country     century year   cases population
 ##   &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;  &lt;int&gt;      &lt;int&gt;
 ## 1 Afghanistan 19      99       745   19987071
@@ -441,9 +448,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 China       19      99    212258 1272915272
 ## 6 China       20      00    213766 1280428583</code></pre>
 <p>Con <code>unite()</code> hacemos justamente lo contrario, especificando el separador (por defecto será <code>_</code>) que en este caso será un espacio en blanco:</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="tidy.html#cb134-1" aria-hidden="true" tabindex="-1"></a>table5 <span class="sc">%&gt;%</span> </span>
-<span id="cb134-2"><a href="tidy.html#cb134-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(new, century, year, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 3
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="tidy.html#cb35-1" tabindex="-1"></a>table5 <span class="sc">%&gt;%</span> </span>
+<span id="cb35-2"><a href="tidy.html#cb35-2" tabindex="-1"></a>  <span class="fu">unite</span>(new, century, year, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
 ##   country     new   rate             
 ##   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;            
 ## 1 Afghanistan 1999  745/19987071     
@@ -452,24 +459,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 Brazil      2000  80488/174504898  
 ## 5 China       1999  212258/1272915272
 ## 6 China       2000  213766/1280428583</code></pre>
-<div id="ejercicios-14" class="section level3" number="4.3.1">
-<h3><span class="header-section-number">4.3.1</span> Ejercicios</h3>
+<div id="ejercicios-8" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Ejercicios<a href="tidy.html#ejercicios-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol start="5" style="list-style-type: decimal">
 <li>Experimenta con los argumentos <code>extra</code> y <code>fill</code> de <code>separate()</code>, usando estos datos:</li>
 </ol>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="tidy.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;a,b,c&quot;</span>, <span class="st">&quot;d,e,f,g&quot;</span>, <span class="st">&quot;h,i,j&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb136-2"><a href="tidy.html#cb136-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(x, <span class="fu">c</span>(<span class="st">&quot;one&quot;</span>, <span class="st">&quot;two&quot;</span>, <span class="st">&quot;three&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="tidy.html#cb37-1" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;a,b,c&quot;</span>, <span class="st">&quot;d,e,f,g&quot;</span>, <span class="st">&quot;h,i,j&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb37-2"><a href="tidy.html#cb37-2" tabindex="-1"></a>  <span class="fu">separate</span>(x, <span class="fu">c</span>(<span class="st">&quot;one&quot;</span>, <span class="st">&quot;two&quot;</span>, <span class="st">&quot;three&quot;</span>))</span></code></pre></div>
 <pre><code>## Warning: Expected 3 pieces. Additional pieces discarded in 1 rows [2].</code></pre>
-<pre><code>## # A tibble: 3 x 3
+<pre><code>## # A tibble: 3 × 3
 ##   one   two   three
 ##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
 ## 1 a     b     c    
 ## 2 d     e     f    
 ## 3 h     i     j</code></pre>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="tidy.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;a,b,c&quot;</span>, <span class="st">&quot;d,e&quot;</span>, <span class="st">&quot;f,g,i&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb139-2"><a href="tidy.html#cb139-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(x, <span class="fu">c</span>(<span class="st">&quot;one&quot;</span>, <span class="st">&quot;two&quot;</span>, <span class="st">&quot;three&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="tidy.html#cb40-1" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;a,b,c&quot;</span>, <span class="st">&quot;d,e&quot;</span>, <span class="st">&quot;f,g,i&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb40-2"><a href="tidy.html#cb40-2" tabindex="-1"></a>  <span class="fu">separate</span>(x, <span class="fu">c</span>(<span class="st">&quot;one&quot;</span>, <span class="st">&quot;two&quot;</span>, <span class="st">&quot;three&quot;</span>))</span></code></pre></div>
 <pre><code>## Warning: Expected 3 pieces. Missing pieces filled with `NA` in 1 rows [2].</code></pre>
-<pre><code>## # A tibble: 3 x 3
+<pre><code>## # A tibble: 3 × 3
 ##   one   two   three
 ##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
 ## 1 a     b     c    
@@ -477,23 +484,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 3 f     g     i</code></pre>
 </div>
 </div>
-<div id="lidiar-con-los-datos-faltantes" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Lidiar con los datos faltantes</h2>
+<div id="lidiar-con-los-datos-faltantes" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Lidiar con los datos faltantes<a href="tidy.html#lidiar-con-los-datos-faltantes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Habrás notado que al cambiar la forma en que presentamos los datos, pueden aparecer valores perdidos (<code>NA</code>s). Estos perdidos pueden ser de dos formas:</p>
 <ol style="list-style-type: decimal">
 <li>Explícitos, cuando vemos un <code>NA</code> en los datos.</li>
 <li>Implícitos, cuando no están presentes en los datos.</li>
 </ol>
 <p>¿Podrías identificarlos aquí?</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="tidy.html#cb142-1" aria-hidden="true" tabindex="-1"></a>stocks <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb142-2"><a href="tidy.html#cb142-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">year   =</span> <span class="fu">c</span>(<span class="dv">2015</span>, <span class="dv">2015</span>, <span class="dv">2015</span>, <span class="dv">2015</span>, <span class="dv">2016</span>, <span class="dv">2016</span>, <span class="dv">2016</span>),</span>
-<span id="cb142-3"><a href="tidy.html#cb142-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">qtr    =</span> <span class="fu">c</span>(   <span class="dv">1</span>,    <span class="dv">2</span>,    <span class="dv">3</span>,    <span class="dv">4</span>,    <span class="dv">2</span>,    <span class="dv">3</span>,    <span class="dv">4</span>),</span>
-<span id="cb142-4"><a href="tidy.html#cb142-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">return =</span> <span class="fu">c</span>(<span class="fl">1.88</span>, <span class="fl">0.59</span>, <span class="fl">0.35</span>,   <span class="cn">NA</span>, <span class="fl">0.92</span>, <span class="fl">0.17</span>, <span class="fl">2.66</span>)</span>
-<span id="cb142-5"><a href="tidy.html#cb142-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="tidy.html#cb43-1" tabindex="-1"></a>stocks <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb43-2"><a href="tidy.html#cb43-2" tabindex="-1"></a>  <span class="at">year   =</span> <span class="fu">c</span>(<span class="dv">2015</span>, <span class="dv">2015</span>, <span class="dv">2015</span>, <span class="dv">2015</span>, <span class="dv">2016</span>, <span class="dv">2016</span>, <span class="dv">2016</span>),</span>
+<span id="cb43-3"><a href="tidy.html#cb43-3" tabindex="-1"></a>  <span class="at">qtr    =</span> <span class="fu">c</span>(   <span class="dv">1</span>,    <span class="dv">2</span>,    <span class="dv">3</span>,    <span class="dv">4</span>,    <span class="dv">2</span>,    <span class="dv">3</span>,    <span class="dv">4</span>),</span>
+<span id="cb43-4"><a href="tidy.html#cb43-4" tabindex="-1"></a>  <span class="at">return =</span> <span class="fu">c</span>(<span class="fl">1.88</span>, <span class="fl">0.59</span>, <span class="fl">0.35</span>,   <span class="cn">NA</span>, <span class="fl">0.92</span>, <span class="fl">0.17</span>, <span class="fl">2.66</span>)</span>
+<span id="cb43-5"><a href="tidy.html#cb43-5" tabindex="-1"></a>)</span></code></pre></div>
 <p>Observa cómo los implícitos pasan a ser explícitos:</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="tidy.html#cb143-1" aria-hidden="true" tabindex="-1"></a>stocks <span class="sc">%&gt;%</span> </span>
-<span id="cb143-2"><a href="tidy.html#cb143-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> year, <span class="at">values_from =</span> return)</span></code></pre></div>
-<pre><code>## # A tibble: 4 x 3
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="tidy.html#cb44-1" tabindex="-1"></a>stocks <span class="sc">%&gt;%</span> </span>
+<span id="cb44-2"><a href="tidy.html#cb44-2" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> year, <span class="at">values_from =</span> return)</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 3
 ##     qtr `2015` `2016`
 ##   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
 ## 1     1   1.88  NA   
@@ -501,15 +508,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 3     3   0.35   0.17
 ## 4     4  NA      2.66</code></pre>
 <p>Si hacemos la operación inversa con <code>pivot_longer()</code>, tal vez no deseamos que esos perdidos aparezcan de forma explícita:</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="tidy.html#cb145-1" aria-hidden="true" tabindex="-1"></a>stocks <span class="sc">%&gt;%</span> </span>
-<span id="cb145-2"><a href="tidy.html#cb145-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> year, <span class="at">values_from =</span> return) <span class="sc">%&gt;%</span> </span>
-<span id="cb145-3"><a href="tidy.html#cb145-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb145-4"><a href="tidy.html#cb145-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">2015</span><span class="st">`</span>, <span class="st">`</span><span class="at">2016</span><span class="st">`</span>), </span>
-<span id="cb145-5"><a href="tidy.html#cb145-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, </span>
-<span id="cb145-6"><a href="tidy.html#cb145-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;return&quot;</span>, </span>
-<span id="cb145-7"><a href="tidy.html#cb145-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_drop_na =</span> <span class="cn">TRUE</span></span>
-<span id="cb145-8"><a href="tidy.html#cb145-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 3
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="tidy.html#cb46-1" tabindex="-1"></a>stocks <span class="sc">%&gt;%</span> </span>
+<span id="cb46-2"><a href="tidy.html#cb46-2" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> year, <span class="at">values_from =</span> return) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-3"><a href="tidy.html#cb46-3" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb46-4"><a href="tidy.html#cb46-4" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">2015</span><span class="st">`</span>, <span class="st">`</span><span class="at">2016</span><span class="st">`</span>), </span>
+<span id="cb46-5"><a href="tidy.html#cb46-5" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, </span>
+<span id="cb46-6"><a href="tidy.html#cb46-6" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;return&quot;</span>, </span>
+<span id="cb46-7"><a href="tidy.html#cb46-7" tabindex="-1"></a>    <span class="at">values_drop_na =</span> <span class="cn">TRUE</span></span>
+<span id="cb46-8"><a href="tidy.html#cb46-8" tabindex="-1"></a>  )</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
 ##     qtr year  return
 ##   &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
 ## 1     1 2015    1.88
@@ -519,9 +526,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5     3 2016    0.17
 ## 6     4 2016    2.66</code></pre>
 <p>Por otro lado, si queremos que los perdidos implícitos aparezcan de forma explícita (sí, ¡vaya lío!):</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="tidy.html#cb147-1" aria-hidden="true" tabindex="-1"></a>stocks <span class="sc">%&gt;%</span> </span>
-<span id="cb147-2"><a href="tidy.html#cb147-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">complete</span>(year, qtr)</span></code></pre></div>
-<pre><code>## # A tibble: 8 x 3
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="tidy.html#cb48-1" tabindex="-1"></a>stocks <span class="sc">%&gt;%</span> </span>
+<span id="cb48-2"><a href="tidy.html#cb48-2" tabindex="-1"></a>  <span class="fu">complete</span>(year, qtr)</span></code></pre></div>
+<pre><code>## # A tibble: 8 × 3
 ##    year   qtr return
 ##   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
 ## 1  2015     1   1.88
@@ -532,30 +539,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6  2016     2   0.92
 ## 7  2016     3   0.17
 ## 8  2016     4   2.66</code></pre>
-<div id="ejercicios-15" class="section level3" number="4.4.1">
-<h3><span class="header-section-number">4.4.1</span> Ejercicios</h3>
+<div id="ejercicios-9" class="section level3 hasAnchor" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Ejercicios<a href="tidy.html#ejercicios-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol start="6" style="list-style-type: decimal">
 <li>Otra función interesante es <code>fill</code>. ¿Puedes entender cómo funciona a partir de este ejemplo?</li>
 </ol>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="tidy.html#cb149-1" aria-hidden="true" tabindex="-1"></a>treatment <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
-<span id="cb149-2"><a href="tidy.html#cb149-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span> person,           <span class="sc">~</span> treatment, <span class="sc">~</span>response,</span>
-<span id="cb149-3"><a href="tidy.html#cb149-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Derrick Whitmore&quot;</span>, <span class="dv">1</span>,           <span class="dv">7</span>,</span>
-<span id="cb149-4"><a href="tidy.html#cb149-4" aria-hidden="true" tabindex="-1"></a>  <span class="cn">NA</span>,                 <span class="dv">2</span>,           <span class="dv">10</span>,</span>
-<span id="cb149-5"><a href="tidy.html#cb149-5" aria-hidden="true" tabindex="-1"></a>  <span class="cn">NA</span>,                 <span class="dv">3</span>,           <span class="dv">9</span>,</span>
-<span id="cb149-6"><a href="tidy.html#cb149-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Katherine Burke&quot;</span>,  <span class="dv">1</span>,           <span class="dv">4</span></span>
-<span id="cb149-7"><a href="tidy.html#cb149-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb149-8"><a href="tidy.html#cb149-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb149-9"><a href="tidy.html#cb149-9" aria-hidden="true" tabindex="-1"></a>treatment</span></code></pre></div>
-<pre><code>## # A tibble: 4 x 3
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="tidy.html#cb50-1" tabindex="-1"></a>treatment <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb50-2"><a href="tidy.html#cb50-2" tabindex="-1"></a>  <span class="sc">~</span> person,           <span class="sc">~</span> treatment, <span class="sc">~</span>response,</span>
+<span id="cb50-3"><a href="tidy.html#cb50-3" tabindex="-1"></a>  <span class="st">&quot;Derrick Whitmore&quot;</span>, <span class="dv">1</span>,           <span class="dv">7</span>,</span>
+<span id="cb50-4"><a href="tidy.html#cb50-4" tabindex="-1"></a>  <span class="cn">NA</span>,                 <span class="dv">2</span>,           <span class="dv">10</span>,</span>
+<span id="cb50-5"><a href="tidy.html#cb50-5" tabindex="-1"></a>  <span class="cn">NA</span>,                 <span class="dv">3</span>,           <span class="dv">9</span>,</span>
+<span id="cb50-6"><a href="tidy.html#cb50-6" tabindex="-1"></a>  <span class="st">&quot;Katherine Burke&quot;</span>,  <span class="dv">1</span>,           <span class="dv">4</span></span>
+<span id="cb50-7"><a href="tidy.html#cb50-7" tabindex="-1"></a>)</span>
+<span id="cb50-8"><a href="tidy.html#cb50-8" tabindex="-1"></a></span>
+<span id="cb50-9"><a href="tidy.html#cb50-9" tabindex="-1"></a>treatment</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 3
 ##   person           treatment response
 ##   &lt;chr&gt;                &lt;dbl&gt;    &lt;dbl&gt;
 ## 1 Derrick Whitmore         1        7
 ## 2 &lt;NA&gt;                     2       10
 ## 3 &lt;NA&gt;                     3        9
 ## 4 Katherine Burke          1        4</code></pre>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="tidy.html#cb151-1" aria-hidden="true" tabindex="-1"></a>treatment <span class="sc">%&gt;%</span> </span>
-<span id="cb151-2"><a href="tidy.html#cb151-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fill</span>(person)</span></code></pre></div>
-<pre><code>## # A tibble: 4 x 3
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="tidy.html#cb52-1" tabindex="-1"></a>treatment <span class="sc">%&gt;%</span> </span>
+<span id="cb52-2"><a href="tidy.html#cb52-2" tabindex="-1"></a>  <span class="fu">fill</span>(person)</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 3
 ##   person           treatment response
 ##   &lt;chr&gt;                &lt;dbl&gt;    &lt;dbl&gt;
 ## 1 Derrick Whitmore         1        7
@@ -567,22 +574,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 </div>
 </div>
-<div id="case-study" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Case study</h2>
+<div id="case-study" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Case study<a href="tidy.html#case-study" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Vamos con unos datos reales. En este caso, usaremos el dataset <code>who</code> de <code>dplyr</code>, con información sobre el número de casos de TB en el 2014, proporcionados por la Organización Mundial de la Salud (OMS, o WHO en inglés).</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="tidy.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;who&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="tidy.html#cb54-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;who&quot;</span>)</span></code></pre></div>
 <p>El primer paso es crear una nueva columna auxiliar para agrupar las categorías <code>new_sp_m014</code> a <code>new_rel_f65</code>, que no parecen ser variables:</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="tidy.html#cb154-1" aria-hidden="true" tabindex="-1"></a>who1 <span class="ot">&lt;-</span> who <span class="sc">%&gt;%</span> </span>
-<span id="cb154-2"><a href="tidy.html#cb154-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb154-3"><a href="tidy.html#cb154-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> new_sp_m014<span class="sc">:</span>newrel_f65, </span>
-<span id="cb154-4"><a href="tidy.html#cb154-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;key&quot;</span>, </span>
-<span id="cb154-5"><a href="tidy.html#cb154-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;cases&quot;</span>, </span>
-<span id="cb154-6"><a href="tidy.html#cb154-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_drop_na =</span> <span class="cn">TRUE</span></span>
-<span id="cb154-7"><a href="tidy.html#cb154-7" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb154-8"><a href="tidy.html#cb154-8" aria-hidden="true" tabindex="-1"></a>who1</span></code></pre></div>
-<pre><code>## # A tibble: 76,046 x 6
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="tidy.html#cb55-1" tabindex="-1"></a>who1 <span class="ot">&lt;-</span> who <span class="sc">%&gt;%</span> </span>
+<span id="cb55-2"><a href="tidy.html#cb55-2" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb55-3"><a href="tidy.html#cb55-3" tabindex="-1"></a>    <span class="at">cols =</span> new_sp_m014<span class="sc">:</span>newrel_f65, </span>
+<span id="cb55-4"><a href="tidy.html#cb55-4" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;key&quot;</span>, </span>
+<span id="cb55-5"><a href="tidy.html#cb55-5" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;cases&quot;</span>, </span>
+<span id="cb55-6"><a href="tidy.html#cb55-6" tabindex="-1"></a>    <span class="at">values_drop_na =</span> <span class="cn">TRUE</span></span>
+<span id="cb55-7"><a href="tidy.html#cb55-7" tabindex="-1"></a>  )</span>
+<span id="cb55-8"><a href="tidy.html#cb55-8" tabindex="-1"></a>who1</span></code></pre></div>
+<pre><code>## # A tibble: 76,046 × 6
 ##    country     iso2  iso3   year key          cases
-##    &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;chr&gt;        &lt;int&gt;
+##    &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
 ##  1 Afghanistan AF    AFG    1997 new_sp_m014      0
 ##  2 Afghanistan AF    AFG    1997 new_sp_m1524    10
 ##  3 Afghanistan AF    AFG    1997 new_sp_m2534     6
@@ -593,11 +600,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Afghanistan AF    AFG    1997 new_sp_f014      5
 ##  9 Afghanistan AF    AFG    1997 new_sp_f1524    38
 ## 10 Afghanistan AF    AFG    1997 new_sp_f2534    36
-## # ... with 76,036 more rows</code></pre>
+## # ℹ 76,036 more rows</code></pre>
 <p>Antes de separar la columna <code>key</code>, de acuerdo a la información consultada en la ayuda <code>?who</code>, tenemos que lidiar con unos <em>typos</em> muy difíciles de observar: hay cierta inconsistencia entre <code>new_rel</code> y <code>newrel</code>. Para resolver esto, solo tenemos que emplear una de las funciones de <code>stringr</code>… <strong>Arréglalo y guarda los datos en un nuevo tibble <code>who2</code></strong>.</p>
-<pre><code>## # A tibble: 76,046 x 6
+<pre><code>## # A tibble: 76,046 × 6
 ##    country     iso2  iso3   year key          cases
-##    &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;chr&gt;        &lt;int&gt;
+##    &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
 ##  1 Afghanistan AF    AFG    1997 new_sp_m014      0
 ##  2 Afghanistan AF    AFG    1997 new_sp_m1524    10
 ##  3 Afghanistan AF    AFG    1997 new_sp_m2534     6
@@ -608,14 +615,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Afghanistan AF    AFG    1997 new_sp_f014      5
 ##  9 Afghanistan AF    AFG    1997 new_sp_f1524    38
 ## 10 Afghanistan AF    AFG    1997 new_sp_f2534    36
-## # ... with 76,036 more rows</code></pre>
+## # ℹ 76,036 more rows</code></pre>
 <p>Ahora vamos a hacer dos pases de <code>separate()</code> . Primero, separamos todo lo que esté unido por <code>_</code>:</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="tidy.html#cb157-1" aria-hidden="true" tabindex="-1"></a>who3 <span class="ot">&lt;-</span> who2 <span class="sc">%&gt;%</span> </span>
-<span id="cb157-2"><a href="tidy.html#cb157-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(key, <span class="fu">c</span>(<span class="st">&quot;new&quot;</span>, <span class="st">&quot;type&quot;</span>, <span class="st">&quot;sexage&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)</span>
-<span id="cb157-3"><a href="tidy.html#cb157-3" aria-hidden="true" tabindex="-1"></a>who3</span></code></pre></div>
-<pre><code>## # A tibble: 76,046 x 8
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="tidy.html#cb58-1" tabindex="-1"></a>who3 <span class="ot">&lt;-</span> who2 <span class="sc">%&gt;%</span> </span>
+<span id="cb58-2"><a href="tidy.html#cb58-2" tabindex="-1"></a>  <span class="fu">separate</span>(key, <span class="fu">c</span>(<span class="st">&quot;new&quot;</span>, <span class="st">&quot;type&quot;</span>, <span class="st">&quot;sexage&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)</span>
+<span id="cb58-3"><a href="tidy.html#cb58-3" tabindex="-1"></a>who3</span></code></pre></div>
+<pre><code>## # A tibble: 76,046 × 8
 ##    country     iso2  iso3   year new   type  sexage cases
-##    &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;int&gt;
+##    &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt;
 ##  1 Afghanistan AF    AFG    1997 new   sp    m014       0
 ##  2 Afghanistan AF    AFG    1997 new   sp    m1524     10
 ##  3 Afghanistan AF    AFG    1997 new   sp    m2534      6
@@ -626,14 +633,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Afghanistan AF    AFG    1997 new   sp    f014       5
 ##  9 Afghanistan AF    AFG    1997 new   sp    f1524     38
 ## 10 Afghanistan AF    AFG    1997 new   sp    f2534     36
-## # ... with 76,036 more rows</code></pre>
+## # ℹ 76,036 more rows</code></pre>
 <p><strong>Antes del segundo pase, elimina lo que no te interesa: <code>new</code>, <code>iso2</code> e <code>iso3</code></strong>. Cuando lo hayas hecho, guarda los nuevos datos en <code>who4</code>, y hacemos al segundo <code>separate()</code> para obtener el sexo y rangos de edades por separado:</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="tidy.html#cb159-1" aria-hidden="true" tabindex="-1"></a>who5 <span class="ot">&lt;-</span> who4 <span class="sc">%&gt;%</span> </span>
-<span id="cb159-2"><a href="tidy.html#cb159-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(sexage, <span class="fu">c</span>(<span class="st">&quot;sex&quot;</span>, <span class="st">&quot;age&quot;</span>), <span class="at">sep =</span> <span class="dv">1</span>)</span>
-<span id="cb159-3"><a href="tidy.html#cb159-3" aria-hidden="true" tabindex="-1"></a>who5</span></code></pre></div>
-<pre><code>## # A tibble: 76,046 x 6
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="tidy.html#cb60-1" tabindex="-1"></a>who5 <span class="ot">&lt;-</span> who4 <span class="sc">%&gt;%</span> </span>
+<span id="cb60-2"><a href="tidy.html#cb60-2" tabindex="-1"></a>  <span class="fu">separate</span>(sexage, <span class="fu">c</span>(<span class="st">&quot;sex&quot;</span>, <span class="st">&quot;age&quot;</span>), <span class="at">sep =</span> <span class="dv">1</span>)</span>
+<span id="cb60-3"><a href="tidy.html#cb60-3" tabindex="-1"></a>who5</span></code></pre></div>
+<pre><code>## # A tibble: 76,046 × 6
 ##    country      year type  sex   age   cases
-##    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt;
+##    &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;
 ##  1 Afghanistan  1997 sp    m     014       0
 ##  2 Afghanistan  1997 sp    m     1524     10
 ##  3 Afghanistan  1997 sp    m     2534      6
@@ -644,9 +651,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Afghanistan  1997 sp    f     014       5
 ##  9 Afghanistan  1997 sp    f     1524     38
 ## 10 Afghanistan  1997 sp    f     2534     36
-## # ... with 76,036 more rows</code></pre>
-<div id="ejercicios-16" class="section level3" number="4.5.1">
-<h3><span class="header-section-number">4.5.1</span> Ejercicios</h3>
+## # ℹ 76,036 more rows</code></pre>
+<div id="ejercicios-10" class="section level3 hasAnchor" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> Ejercicios<a href="tidy.html#ejercicios-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol start="8" style="list-style-type: decimal">
 <li><p>Escribe todas las transformaciones con un único <em>pipe</em>.</p></li>
 <li><p>Para cada país, año y sexo calcula el número total de casos de TB. Haz un plot de los resultados, de la forma que consideres más informativa.</p></li>
